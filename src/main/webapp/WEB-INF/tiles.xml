@@ -6,20 +6,20 @@
 
 <tiles-definitions>
 
-    <definition name="baseLayout" template="/tiles/layout.jsp">
+    <definition name="baseLayout" template="/jsp/tiles/layout.jsp">
         <put-attribute name="title" value="Template" cascade="true"/>
-        <put-attribute name="header" value="/tiles/header.jsp"/>
-        <put-attribute name="footer" value="/tiles/footer.jsp"/>
+        <put-attribute name="header" value="/jsp/tiles/header.jsp"/>
+        <put-attribute name="footer" value="/jsp/tiles/footer.jsp"/>
     </definition>
 
     <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Main page" cascade="true"/>
-        <put-attribute name="body" value="/example/index.jsp"/>
+        <put-attribute name="body" value="/jsp/example/index.jsp"/>
     </definition>
 
     <definition name="demo" extends="baseLayout">
         <put-attribute name="title" value="Demo feature" cascade="true"/>
-        <put-attribute name="body" value="/example/demo.jsp"/>
+        <put-attribute name="body" value="/jsp/example/demo.jsp"/>
     </definition>
 
 </tiles-definitions>

@@ -5,46 +5,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
     <display-name>Webapp bootstrap</display-name>
-
-    <listener>
-        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>
-            org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
-        </filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>/gui/*</url-pattern>
-    </filter-mapping>
-
-    <servlet>
-        <servlet-name>WebappRest</servlet-name>
-        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>info.macias.webapp.api</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>WebappRest</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>jspSupportServlet</servlet-name>
-        <servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
-        <load-on-startup>5</load-on-startup>
-    </servlet>
-
-
+    <!-- Apache shiro for security -->
+    <!-- it is important to first define shiro filter before Struts2 and Jersey -->
     <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
     </listener>
-
     <filter>
         <filter-name>ShiroFilter</filter-name>
         <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
@@ -59,7 +24,43 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
-<welcome-file-list>
-    <welcome-file>/login.html</welcome-file>
-</welcome-file-list>
+
+    <!-- Struts for MVC -->
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>
+            org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/gui/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>jspSupportServlet</servlet-name>
+        <servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+        <load-on-startup>5</load-on-startup>
+    </servlet>
+
+    <!-- Jersey for REST -->
+    <servlet>
+        <servlet-name>WebappRest</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>info.macias.webapp.api</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebappRest</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
 </web-app>
