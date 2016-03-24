@@ -28,7 +28,7 @@ public class Demo extends ActionSupport {
     public String execute() throws Exception {
         if(number == null || number < 10 || number > 20) {
             // this is not needed, since this validation is performed in demo-validation.xml
-            addFieldError("number",getText("demo.error") + " hardcoded");
+            addFieldError("number",getText("demo.error"));
             return INPUT;
         }
         return SUCCESS;
