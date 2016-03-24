@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE validators PUBLIC
+          "-//Apache Struts//XWork Validator 1.0.2//EN"
+          "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="number">
+    <field-validator type="required">
+      <message key="demo.error"/>
+    </field-validator>
+    <field-validator type="int">
+      <param name="min">10</param>
+      <param name="max">20</param>
+      <message key="demo.error"/>
+    </field-validator>
+  </field>
+</validators>
