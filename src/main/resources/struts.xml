@@ -13,6 +13,7 @@
         <result-types>
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
         </result-types>
+        <default-action-ref name="index"/>
         <action name="index" class="info.macias.webapp.gui.Index">
             <result type="tiles">index</result>
         </action>
