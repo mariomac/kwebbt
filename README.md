@@ -11,7 +11,7 @@ To start the service:
 
     mvn jetty:run
 
-To test GUI Security, open your browser and go to [http://localhost:8080](http://localhost:8080).
+To test GUI Security, open your browser and go to [http://localhost:8080](http://localhost:8080) (username/password: user/user).
 
 To test API Security:
 
